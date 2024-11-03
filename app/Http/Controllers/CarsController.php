@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\cars;
-use App\Http\Requests\StorecarsRequest;
-use App\Http\Requests\UpdatecarsRequest;
+use App\Models\Cars;
+use App\Http\Requests\StoreCarsRequest;
+use App\Http\Requests\UpdateCarsRequest;
 
 class CarsController extends Controller
 {
@@ -27,7 +27,7 @@ class CarsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorecarsRequest $request)
+    public function store(StoreCarsRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class CarsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(cars $cars)
+    public function show(Cars $cars)
     {
         //
     }
@@ -43,7 +43,7 @@ class CarsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(cars $cars)
+    public function edit(Cars $cars)
     {
         //
     }
@@ -51,7 +51,7 @@ class CarsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatecarsRequest $request, cars $cars)
+    public function update(UpdateCarsRequest $request, Cars $cars)
     {
         //
     }
@@ -59,7 +59,7 @@ class CarsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(cars $cars)
+    public function destroy(Cars $cars)
     {
         //
     }
