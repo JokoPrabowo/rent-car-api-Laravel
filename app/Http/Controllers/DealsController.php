@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Deals;
 use App\Http\Requests\StoreDealsRequest;
 use App\Http\Requests\UpdateDealsRequest;
+use App\Http\Resources\DealsResource;
 
 class DealsController extends Controller
 {
@@ -13,7 +14,11 @@ class DealsController extends Controller
      */
     public function index()
     {
-        //
+        //get all posts
+        $deals = Deals::latest()->paginate(5);
+
+        //return collection of posts as a resource
+        return new DealsResource(true, 'List Data Deals', $deals);
     }
 
     /**

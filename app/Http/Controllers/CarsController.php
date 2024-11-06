@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cars;
 use App\Http\Requests\StoreCarsRequest;
 use App\Http\Requests\UpdateCarsRequest;
+use App\Http\Resources\CarsResource;
 
 class CarsController extends Controller
 {
@@ -13,7 +14,11 @@ class CarsController extends Controller
      */
     public function index()
     {
-        //
+        //get all posts
+        $cars = Cars::latest()->paginate(5);
+
+        //return collection of posts as a resource
+        return new CarsResource(true, 'List Data Cars', $cars);
     }
 
     /**
