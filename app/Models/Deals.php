@@ -13,7 +13,7 @@ class Deals extends Model
         'renter_id',
         'car_id',
         'customer_id',
-        'rental_price_per_day',
+        'rental_time_per_day',
         'total_rental_price',
     ];
 
