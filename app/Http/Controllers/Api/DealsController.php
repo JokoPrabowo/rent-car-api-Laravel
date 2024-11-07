@@ -40,11 +40,20 @@ class DealsController extends Controller
             'renter_id'             => $request->renter_id,
             'car_id'                => $request->car_id,
             'customer_id'           => $request->customer_id,
-            'rental_time_per_day'  => $request->rental_time_per_day,
+            'rental_time_per_day'   => $request->rental_time_per_day,
             'total_rental_price'    => $request->total_rental_price,
         ]);
 
         //return response
         return new DealsResource(true, 'Data Transaksi Berhasil Ditambahkan!', $deals);
+    }
+
+    public function show($id)
+    {
+        //find cars by ID
+        $deals = Deals::find($id);
+
+        //return single car as a resource
+        return new DealsResource(true, 'Detail Data Transaksi!', $deals);
     }
 }

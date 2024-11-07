@@ -48,4 +48,13 @@ class CarsController
         //return response
         return new CarsResource(true, 'Data Mobil Berhasil Ditambahkan!', $cars);
     }
+
+    public function show($id)
+    {
+        //find post by ID
+        $cars = Cars::find($id);
+
+        //return single post as a resource
+        return new CarsResource(true, 'Detail Data Mobil!', $cars);
+    }
 }
