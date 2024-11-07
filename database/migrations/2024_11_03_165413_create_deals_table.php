@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("renter_id");
             $table->string("car_id");
             $table->string("customer_id");
-            $table->integer("rental_time_per_day");
+            $table->integer("rental_time_by_day");
             $table->integer("total_rental_price");
             $table->timestamps();
         });
