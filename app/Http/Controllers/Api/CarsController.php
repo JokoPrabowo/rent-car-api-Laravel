@@ -51,10 +51,33 @@ class CarsController
 
     public function show($id)
     {
+        //find cars by ID
+        $cars = Cars::find($id);
+
+        //return single car as a resource
+        return new CarsResource(true, 'Detail Data Mobil!', $cars);
+    }
+
+    public function update(Request $request, $id)
+    {
+        //define validation rules
+        $validator = Validator::make($request->all(), [
+            'rental_price_per_day'  => 'required',
+        ]);
+
+        //check if validation fails
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
         //find post by ID
         $cars = Cars::find($id);
 
-        //return single post as a resource
-        return new CarsResource(true, 'Detail Data Mobil!', $cars);
+        $cars->update([
+            'rental_price_per_day'  => $request->rental_price_per_day,
+        ]);
+
+        //return response
+        return new CarsResource(true, 'Data Mobil Berhasil Diubah!', $cars);
     }
 }

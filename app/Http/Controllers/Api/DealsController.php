@@ -56,4 +56,29 @@ class DealsController extends Controller
         //return single car as a resource
         return new DealsResource(true, 'Detail Data Transaksi!', $deals);
     }
+
+    public function update(Request $request, $id)
+    {
+        //define validation rules
+        $validator = Validator::make($request->all(), [
+            'rental_time_per_day'   => 'required',
+            'total_rental_price'    => 'required',
+        ]);
+
+        //check if validation fails
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        //find post by ID
+        $deals = Deals::find($id);
+
+        $deals->update([
+            'rental_time_per_day'   => $request->rental_time_per_day,
+            'total_rental_price'    => $request->total_rental_price,
+        ]);
+
+        //return response
+        return new DealsResource(true, 'Data Transaksi Berhasil Diubah!', $deals);
+    }
 }
