@@ -92,4 +92,17 @@ class DealsController extends Controller
         //return response
         return new DealsResource(true, 'Data Transaksi Berhasil Diubah!', $deals);
     }
+
+    public function destroy($id)
+    {
+
+        //find post by ID
+        $deals = Deals::find($id);
+
+        //delete post
+        $deals->delete();
+
+        //return response
+        return new DealsResource(true, 'Data Post Berhasil Dihapus!', null);
+    }
 }

@@ -80,4 +80,17 @@ class CarsController
         //return response
         return new CarsResource(true, 'Data Mobil Berhasil Diubah!', $cars);
     }
+
+    public function destroy($id)
+    {
+
+        //find post by ID
+        $cars = Cars::find($id);
+
+        //delete post
+        $cars->delete();
+
+        //return response
+        return new CarsResource(true, 'Data Post Berhasil Dihapus!', null);
+    }
 }
