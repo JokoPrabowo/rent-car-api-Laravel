@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Deals extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
         'renter_id',
         'car_id',
@@ -17,10 +16,16 @@ class Deals extends Model
         'total_rental_price',
     ];
 
-    public function user() {
-        return $this->belongsTo(User::class);
+    protected $primaryKey = "id";
+    protected $keyType = "int";
+    protected $table = "deals";
+    public $incrementing = true;
+    public $timestamps = true;
+
+    public function user(): BelongsTo {
+        return $this->belongsTo(Users::class, "customer_id", "id");
     }
-    public function car() {
-        return $this->belongsTo(Cars::class);
+    public function car(): BelongsTo {
+        return $this->belongsTo(Cars::class, "car_id", "id");
     }
 }
