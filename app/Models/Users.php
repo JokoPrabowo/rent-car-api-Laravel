@@ -9,7 +9,7 @@ class Users extends Model
 {
     protected $table = "users";
     protected $primaryKey = "id";
-    protected $type = "int";
+    protected $keyType = "int";
     public $timestamps = true;
     public $incrementing = true;
 
