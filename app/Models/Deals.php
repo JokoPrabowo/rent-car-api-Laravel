@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Deals extends Model
 {
     protected $fillable = [
-        'renter_id',
         'car_id',
         'customer_id',
         'rental_time_by_day',
