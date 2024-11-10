@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Users extends Model
 {
+    protected $fillable = [
+        'email',
+        'fullname',
+        'password'
+    ];
+    
     protected $table = "users";
     protected $primaryKey = "id";
     protected $keyType = "int";
